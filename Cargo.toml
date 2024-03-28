@@ -1,6 +1,6 @@
 [package]
 name = "env2toml"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "MIT"
 authors = ["Mark <mark_0725@outlook.com>"]
@@ -8,9 +8,8 @@ description = "Convert env vars to toml text"
 repository = "https://github.com/mark0725/env2toml"
 
 [dependencies]
-
+serde = {version = "1.0.197", features = ["derive"]}
+toml = "0.8.11"
 
 [dev-dependencies]
 dotenvy = "0.15.7"
-serde = {version = "1.0.197", features = ["derive"]}
-toml = "0.8.11"

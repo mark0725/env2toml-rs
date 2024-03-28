@@ -3,7 +3,6 @@ use std::env;
 pub fn env2toml(prefix:&str) -> Result<String, String> {
     let mut var_list:Vec<(Option<String>, String, String)> = vec![];
     let mut sections:Vec<String> = vec![];
-
     for (k,v) in env::vars() {
         if k.starts_with(prefix) {
             let s = String::from(&k[prefix.len()..]).to_lowercase();
@@ -24,10 +23,17 @@ pub fn env2toml(prefix:&str) -> Result<String, String> {
 
             let new_key = keys[keys.len()-1];
 
+            let mut s = v.to_string();
+            
+            if (format!("a={v}")).parse::<toml::Value>().is_err() {
+                let s1 = s.replace('\\', "\\\\").replace('\"', "\\\"");
+                s = format!("\"{s1}\"");
+            }
+
             if section.len()>0 {
-                var_list.push((Some(section), new_key.to_string(), v));
+                var_list.push((Some(section), new_key.to_string(), s));
             } else {
-                var_list.push((None, new_key.to_string(), v));
+                var_list.push((None, new_key.to_string(), s));
             }
             
         }

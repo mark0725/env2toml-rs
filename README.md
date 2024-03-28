@@ -27,14 +27,14 @@ Convert env vars to toml text.
 `__` split to `.`
 
 ```
-APP_TITLE='"TOML Example"'
-APP_OWNER__NAME='"Tom Preston-Werner"'
+APP_TITLE='TOML Example'
+APP_OWNER__NAME='Tom Preston-Werner'
 APP_DATABASE__ENABLED=true
 APP_DATABASE__PORTS='[ 8000, 8001, 8002 ]'
-APP_SERVERS__ALPHA__IP='"10.0.0.1"'
-APP_SERVERS__ALPHA__ROLE='"frontend"'
-APP_SERVERS__BETA__IP='"10.0.0.2"'
-APP_SERVERS__BETA__ROLE='"backend"'
+APP_SERVERS__ALPHA__IP=10.0.0.1
+APP_SERVERS__ALPHA__ROLE=frontend
+APP_SERVERS__BETA__IP=10.0.0.2
+APP_SERVERS__BETA__ROLE=backend
 
 ```
 PRIFIX: `APP_`
