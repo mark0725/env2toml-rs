@@ -1,6 +1,5 @@
 use std::env;
 use std::collections::HashMap;
-use std::str::FromStr;
 
 #[derive(Debug, Clone)]
 struct VarItem {
